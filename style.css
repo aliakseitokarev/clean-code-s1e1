@@ -4,27 +4,27 @@
   color: #333;
   font-family: Lato, sans-serif;
 }
-.aaa {
+.header {
   width: 500px;
   margin: 0 auto;
   display: block;
   text-align: right;
 }
-.aaa-image {
+.header__image {
   width: 100%;
 }
-.aaa .more_inf {
+.header__link {
   font-family: fantasy, cursive;
 }
 
 @media (max-width: 768px) {
 
-  .aaa { 
+  .header { 
     text-align: center;
   }
 
 }
-.centered-main-page-element {
+.main-section {
   display: block;
   width: 500px;
   margin: 0 auto 0;
@@ -34,24 +34,29 @@
   display: inline-block;
   flex-grow: 1;
 }
-.task-row-wrapper {
+.add__wrapper {
   display: flex;
 }
-ul {
+.incomplete-list,
+.completed-list {
   margin: 0;
   padding: 0px;
 }
-li,
+.todo,
 .title {
   list-style: none;
 }
-input,
-button {
+.todo__checkbox,
+.todo__text,
+.add__text,
+.add__button,
+.todo__edit,
+.todo__delete {
   outline: none;
 }
-.add,
-.edit,
-.delete {
+.add__button,
+.todo__edit,
+.todo__delete {
   background: none;
   border: 0px;
   color: #888;
@@ -60,14 +65,14 @@ button {
   font-family: Lato, sans-serif;
   cursor: pointer;
 }
-.add:hover,
-.edit:hover,
-.delete:hover {
+.add__button:hover,
+.todo__edit:hover,
+.todo__delete:hover {
   color: #3a3a3a;
 }
 /* Heading */
 .title,
-.new-task-title {
+.add__label {
   color: #333;
   font-weight: 700;
   font-size: 15px;
@@ -76,7 +81,8 @@ button {
   margin: 0;
   text-transform: uppercase;
 }
-.task:nth-child(odd) {
+.todo__text,
+.add__text {
   margin: 0;
   font-size: 18px;
   line-height: 18px;
@@ -88,24 +94,22 @@ button {
   font-family: Lato, sans-serif;
   color: #888;
 }
-.task:nth-child(odd):focus {
+.todo__text:focus,
+.add__text:focus {
   color: #333;
 }
 
 /* New Task */
-.new-task-title {
+.add__label {
   display: block;
   margin: 0 0 20px;
 }
-#new-task {
+.add__text {
   width: 318px;
 }
 
 /* Task list */
-#incompleteTasks > :nth-child(even),
-#incompleteTasks > :nth-child(odd),
-#completed-tasks > :nth-child(even),
-#completed-tasks > :nth-child(odd) {
+.todo {
   overflow: hidden;
   padding: 20px 0;
   border-bottom: 1px solid #eee;
@@ -113,66 +117,51 @@ button {
   justify-content: space-between;
   align-items: center;
 }
-#incompleteTasks > :nth-child(even) .task,
-#incompleteTasks > :nth-child(even) .edit,
-#incompleteTasks > :nth-child(even) .delete,
-#incompleteTasks > :nth-child(even) [type="checkbox"],
-#incompleteTasks > :nth-child(odd) .task,
-#incompleteTasks > :nth-child(odd) .edit,
-#incompleteTasks > :nth-child(odd) .delete,
-#incompleteTasks > :nth-child(odd) [type="checkbox"],
-#completed-tasks > :nth-child(even) .task,
-#completed-tasks > :nth-child(even) .edit,
-#completed-tasks > :nth-child(even) .delete,
-#completed-tasks > :nth-child(even) [type="checkbox"],
-#completed-tasks > :nth-child(odd) .task,
-#completed-tasks > :nth-child(odd) .edit,
-#completed-tasks > :nth-child(odd) .delete,
-#completed-tasks > :nth-child(odd) [type="checkbox"] {
+.todo__checkbox,
+.todo__text,
+.todo__label,
+.todo__edit,
+.todo__delete {
   vertical-align: middle;
 }
 
-#completed-tasks [type="checkbox"],
-#incompleteTasks [type="checkbox"] {
+.todo__checkbox {
   margin: 0 10px;
 }
-.task:nth-child(even) {
+.todo__label {
   padding-left: 10px;
   box-sizing: border-box;
   font-size: 18px;
   width: 226px;
 }
-.task:nth-child(odd):not(#new-task) {
+.todo__text {
   width: 226px;
 }
-.delete :first-child {
+.todo__delete-image {
   height: 2em;
   transform: rotateZ(45deg);
   transition: transform 200ms ease-in;
 }
-.delete :first-child:hover {
+.todo__delete-image:hover {
   transform: rotateZ(0);
 }
 
 /* Completed */
-#completed-tasks .task:nth-child(even) {
+.completed-list .todo__label {
   text-decoration: line-through;
   color: #888;
 }
 
 /* Edit Task */    
-#incompleteTasks .task:nth-child(odd),
-#completed-tasks .task:nth-child(odd) {
+.todo__text {
   display: none;
 }
 
-#incompleteTasks .editMode .task:nth-child(odd),
-#completed-tasks .editMode .task:nth-child(odd) {
+.todo_edit-mode .todo__text {
   display: inline-block;
   width: 224px;
 }
 
-#incompleteTasks .editMode .task:nth-child(even),
-#completed-tasks .editMode .task:nth-child(even) {
+.todo_edit-mode .todo__label {
   display: none;
 }
